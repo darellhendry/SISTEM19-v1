@@ -2,7 +2,7 @@
   "name": "my-profile",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://darellhendry.github.io/profile",
+  "homepage": "http://darellhendry.github.io/profile/",
   "dependencies": {
     "react": "^16.8.1",
     "react-dom": "^16.8.1",
