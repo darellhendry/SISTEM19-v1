@@ -64,7 +64,7 @@ class Container extends React.Component {
   componentWillMount() {
     const url = window.location.toString().split('/')
     const param = url[url.length - 1]
-    this.setState({onPage: param === ''?'Home':param.charAt(0).toUpperCase() + param.slice(1)})
+    this.setState({onPage: param === 'profile'?'Home':param.charAt(0).toUpperCase() + param.slice(1)})
   }
   handleDrawerToggle = () => {
     this.setState(state => ({ mobileOpen: !state.mobileOpen }));
@@ -144,7 +144,7 @@ class Container extends React.Component {
         <main className={classes.content}>
           <div className={classes.toolbar} />
           <Switch>
-            <Route exact path='/' component={Home}/>
+            <Route path='/' component={Home}/>
             <Route path='/about' component={Home}/>
             <Route path='/contact' component={Home}/>
             <Route path='/notfound' component={Home}/>

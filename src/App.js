@@ -7,7 +7,7 @@ class App extends Component {
   render() {
     const {...props} = this.props
     return (
-      <BrowserRouter>
+      <BrowserRouter basename='/profile'>
         <Container />
       </BrowserRouter>
     )
