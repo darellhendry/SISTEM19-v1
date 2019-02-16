@@ -51,7 +51,7 @@ const styles = theme => ({
   }
 });
 const description = {
-  College: 'There are some activities that i have done while I study in college. My first experience is joining a committe team, it\'s Fasilkom Graduation team. Then, while i did in graduation committe, I registered to FUKI, it\'s islamic organazition in Fasilkom and many more. Now i want to focus in my study and try to apply resume to some companies',
+  College: 'There are some activities that i have done while I am study in college. My first experience is joining a committe team, it\'s Fasilkom Graduation team. Then, while i did in graduation committe, I registered to FUKI, it\'s islamic organazition in Fasilkom and many more. Now i want to focus on my study and try to apply resume to some companies',
   Movie:'Sed ad unum fabulas, posse copiosae menandri an usu. Sit ex nominavi reformidans. Qui ea omnium corpora, ex nam vivendo copiosae recusabo. An pro eirmod voluptua reprehendunt, ut adipisci praesent usu, no idque tibique luptatum sed.',
   Code:'Ea utamur aliquam intellegebat mel. In vel impetus delenit expetendis, sea eu minimum copiosae quaestio, eruditi perfecto te quo. Stet soleat concludaturque vis id, autem etiam feugiat te vix. Nihil cetero phaedrum cu nec, wisi altera et nam. Eu verear delenit pri. Dolore vocibus deleniti qui ut, veniam dictas an quo.'
 }
