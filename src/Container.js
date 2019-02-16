@@ -20,6 +20,7 @@ import { withStyles } from '@material-ui/core/styles';
 import { Link, Switch, Route } from 'react-router-dom'
 import Home from './page/Home'
 import Contact from './page/Contact'
+import About from './page/About'
 const drawerWidth = 240;
 
 const styles = theme => {
@@ -51,7 +52,7 @@ const styles = theme => {
     },
     content: {
       flexGrow: 1,
-      padding: theme.spacing.unit * 3,
+      padding: theme.spacing.unit,
     },
   });
 }
@@ -145,7 +146,7 @@ class Container extends React.Component {
           <div className={classes.toolbar} />
           <Switch>
             <Route exact path='/' component={Home}/>
-            <Route path='/about' component={Home}/>
+            <Route path='/about' component={About}/>
             <Route path='/contact-me' component={Contact}/>
             <Route path='/not-found' component={Home}/>
           </Switch>

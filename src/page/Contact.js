@@ -1,6 +1,6 @@
 import React from 'react'
 import axios from 'axios'
-import {Grid, List, Divider, Fade, CircularProgress} from '@material-ui/core';
+import {Grid, List, Divider, CircularProgress} from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 import Comment from '../components/Comment'
 import Form from '../components/Form'
@@ -13,16 +13,24 @@ class Contact extends React.Component {
     data:[],
     loading:true
   }
-  componentDidMount() {
+  componentWillMount() {
     const self = this
-    axios.get('https://contact-me-api.herokuapp.com/api/comments/', {headers:{ 'Content-Type': 'application/json'}})
-    .then(res => {
-      console.log(res);
-      self.setState({data: res.data, loading: false})
-    })
-    .catch(error => {
-      console.log(error);
-    })
+    fetch('https://contact-me-api.herokuapp.com/api/comments/')
+      .then(res => {
+        return res.json()
+      })
+      .then(res => {
+        console.log(res);
+        self.setState({data: res, loading: false})
+      })
+    // axios.get('https://contact-me-api.herokuapp.com/api/comments/', {headers:{ 'Content-Type': 'application/json'}})
+    // .then(res => {
+      // console.log(res);
+      // self.setState({data: res.data, loading: false})
+    // })
+    // .catch(error => {
+    //   console.log(error);
+    // })
   }
   handleSubmit = (name, comment) => {
     const params = {
@@ -51,7 +59,7 @@ class Contact extends React.Component {
   }
   render() {
     return (
-      <Fade in timeout={500}>
+
         <Grid container>
           <Grid item xs={12} md={6}>
             {!this.state.loading && <Form onSubmit={this.handleSubmit}/>}
@@ -59,14 +67,14 @@ class Contact extends React.Component {
           <Grid item xs={12} md={6}>
             <List>
               {
-                !this.state.loading && this.state.data.map( (item,index) => {
-                  return (
-                    <React.Fragment key={index}>
-                      <Divider />
-                      <Comment  data={item}/>
-                      <Divider />
-                    </React.Fragment>
-                  )
+                  !this.state.loading && this.state.data.map( (item,index) => {
+                    return (
+                      <React.Fragment key={index}>
+                        <Divider />
+                        <Comment  data={item}/>
+                        <Divider />
+                      </React.Fragment>
+                    )
                 })
               }
               {
@@ -75,7 +83,6 @@ class Contact extends React.Component {
             </List>
           </Grid>
         </Grid>
-      </Fade>
     )
   }
 }
