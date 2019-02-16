@@ -38,24 +38,31 @@ class Contact extends React.Component {
       comment: comment
     }
     const headers = {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
+      'Accept': 'application/json, text/plain, */*',
+      'Content-Type': 'application/json',
     }
-    axios.post("https://contact-me-api.herokuapp.com/api/comments/", JSON.stringify(params), {headers: headers})
+    fetch('https://contact-me-api.herokuapp.com/api/comments/', {method: 'post', headers:headers, body:params })
       .then(res => {
-        console.log(res);
+        console.log(res)
       })
       .catch(err => {
         console.log(err);
       })
-    this.setState(prev => {
-      let oldData = prev.data
-      let newData = oldData.concat({username: name, comment:comment})
-      console.log(newData);
-      return {
-        data: newData
-      }
-    })
+    // axios.post("https://contact-me-api.herokuapp.com/api/comments/", JSON.stringify(params), {headers: headers})
+    //   .then(res => {
+    //     console.log(res);
+    //   })
+    //   .catch(err => {
+    //     console.log(err);
+    //   })
+    // this.setState(prev => {
+    //   let oldData = prev.data
+    //   let newData = oldData.concat({username: name, comment:comment})
+    //   console.log(newData);
+    //   return {
+    //     data: newData
+    //   }
+    // })
   }
   render() {
     return (
