@@ -19,6 +19,7 @@ import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 import { Link, Switch, Route } from 'react-router-dom'
 import Home from './page/Home'
+import Contact from './page/Contact'
 const drawerWidth = 240;
 
 const styles = theme => {
@@ -64,31 +65,31 @@ class Container extends React.Component {
   componentWillMount() {
     const url = window.location.toString().split('/')
     const param = url[url.length - 1]
-    this.setState({onPage: param === 'profile'?'Home':param.charAt(0).toUpperCase() + param.slice(1)})
+    this.setState({onPage: param === ''?'Home':param.charAt(0).toUpperCase() + param.slice(1)})
   }
   handleDrawerToggle = () => {
     this.setState(state => ({ mobileOpen: !state.mobileOpen }));
   };
   handleClick = (text) => {
-    this.setState({onPage: text})
+    this.setState({onPage: text, mobileOpen: false})
   }
   render() {
     const { classes, theme } = this.props
     const navIcon = {
-      Home: <HomeIcon color='secondary'/>,
-      About: <FaceIcon color='secondary' />,
-      Contact: <ContactsIcon color='secondary'/>
+      'Home': <HomeIcon color='secondary'/>,
+      'About': <FaceIcon color='secondary' />,
+      'Contact-Me': <ContactsIcon color='secondary'/>
     }
     const drawer = (
       <div>
         <div className={classes.toolbar} />
         <Divider />
         <List>
-          {['Home', 'About', 'Contact'].map((text, index) => (
+          {['Home', 'About', 'Contact-Me'].map((text, index) => (
             <Link key={text} style={{textDecoration:'none'}} to={`/${text === 'Home'?'':text}`.toLowerCase()} onClick={() => this.handleClick(text)}>
               <ListItem button key={text}>
                 <ListItemIcon>{navIcon[text]}</ListItemIcon>
-                <ListItemText primary={text} />
+                <ListItemText primary={text === 'Contact-Me' ? 'Contact Me': text} />
               </ListItem>
             </Link>
           ))}
@@ -114,7 +115,6 @@ class Container extends React.Component {
           </Toolbar>
         </AppBar>
         <nav className={classes.drawer}>
-          {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
           <Hidden smUp implementation="css">
             <Drawer
               container={this.props.container}
@@ -144,10 +144,10 @@ class Container extends React.Component {
         <main className={classes.content}>
           <div className={classes.toolbar} />
           <Switch>
-            <Route path='/' component={Home}/>
+            <Route exact path='/' component={Home}/>
             <Route path='/about' component={Home}/>
-            <Route path='/contact' component={Home}/>
-            <Route path='/notfound' component={Home}/>
+            <Route path='/contact-me' component={Contact}/>
+            <Route path='/not-found' component={Home}/>
           </Switch>
         </main>
       </div>
