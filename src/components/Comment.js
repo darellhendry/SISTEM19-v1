@@ -12,8 +12,8 @@ class Comment extends React.Component {
           </Avatar>
         </ListItemAvatar>
         <ListItemText
-          primary={data === undefined ? '': data.username}
-          secondary={data === undefined ? '': data.comment}
+          primary={!Boolean(data)? '': data.username}
+          secondary={!Boolean(data) ? '': data.comment}
         />
       </ListItem>
     )
