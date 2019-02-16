@@ -15,7 +15,7 @@ class Contact extends React.Component {
   }
   componentDidMount() {
     const self = this
-    axios.get('https://contact-me-api.herokuapp.com/api/comments/')
+    axios.get('https://contact-me-api.herokuapp.com/api/comments/', {headers:{ 'Content-Type': 'application/json'}})
     .then(res => {
       console.log(res);
       self.setState({data: res.data, loading: false})
