@@ -15,7 +15,7 @@ class Contact extends React.Component {
   }
   componentDidMount() {
     const self = this
-    axios.get('http://contact-me-api.herokuapp.com/api/comments/')
+    axios.get('https://contact-me-api.herokuapp.com/api/comments/')
     .then(res => {
       console.log(res);
       self.setState({data: res.data, loading: false})
@@ -33,7 +33,7 @@ class Contact extends React.Component {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
     }
-    axios.post("http://contact-me-api.herokuapp.com/api/comments/", JSON.stringify(params), {headers: headers})
+    axios.post("https://contact-me-api.herokuapp.com/api/comments/", JSON.stringify(params), {headers: headers})
       .then(res => {
         console.log(res);
       })
